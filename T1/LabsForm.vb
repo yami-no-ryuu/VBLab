@@ -25,7 +25,7 @@
         Else
             Dim lab = Labs(idx)
             ' Nuzhno otkryt' vtoruju formu dla samoj laby
-            ViewWord(lab, "vvedenie.rtf")
+            lab.ViewWord("vvedenie.rtf")
         End If
     End Sub
 End Class

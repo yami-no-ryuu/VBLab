@@ -33,9 +33,8 @@ ByVal nsize As Integer, ByVal IpFileName As String) As Integer
         End If
     End Sub
 
-    Public Sub ViewWord(lab As LabInfo, fileName As String)
-        Shell("""" + GetFolderPath(SpecialFolder.ProgramFilesX86) + wordViewer + """ """ + lab.FullPath +
-             "/" + fileName + """", AppWinStyle.NormalFocus)
+    Public Sub ViewWord(path As String)
+        Shell("""" + GetFolderPath(SpecialFolder.ProgramFilesX86) + wordViewer + """ """ + path + """", AppWinStyle.NormalFocus)
     End Sub
 
     Class LabInfo
@@ -64,6 +63,10 @@ ByVal nsize As Integer, ByVal IpFileName As String) As Integer
         Public Function FullPath()
             Return Globals.Path + "\" + Me.path
         End Function
+
+        Public Sub ViewWord(fileName As String)
+            Globals.ViewWord(FullPath() + "\" + fileName)
+        End Sub
     End Class
 
     Private _labs As New List(Of LabInfo)
